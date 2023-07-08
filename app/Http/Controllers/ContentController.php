@@ -7,11 +7,11 @@ use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 
-class CommentController extends Controller
+class ContentController extends Controller
 {
     public function index()
     {
-        $url = config('services.endpoints.comment_service.get_all');
+        $url = config('services.endpoints.content_service.get_all');
         try {
             $res = Http::timeout(5)->get($url);
             $data = json_decode($res->body(), true);

@@ -18,5 +18,13 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('comments', ['uses' => 'CommentController@index']);
+
+    $router->group(['prefix' => 'contents'], function () use ($router) {
+        $router->get('/', ['uses' => 'ContentController@index']);
+    });
+
+    $router->group(['prefix' => 'comments'], function () use ($router) {
+        $router->get('/', ['uses' => 'CommentController@index']);
+    });
+
 });
